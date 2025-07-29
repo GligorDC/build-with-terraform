@@ -1,0 +1,2 @@
+Testing from template files with a variables passed to the templatefile ${env}
+repo:${repo} ${normalVar}

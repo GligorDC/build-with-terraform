@@ -1,0 +1,4 @@
+Variables values are:
+%{for repo_key, repo_value in repos~}
+|${repo_key} | ${repo_value}|
+%{endfor~}
