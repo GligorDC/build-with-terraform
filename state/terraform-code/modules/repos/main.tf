@@ -10,6 +10,7 @@ module "repos" {
   repo_count = 2
   repo_max   = 5
   env        = each.key
+  #!!!!May be an issue;
   repos      = jsondecode(file("repos.json"))
 }
 
@@ -31,4 +32,8 @@ module "info-page" {
 
 output "repos-information" {
   value = { for k, v in module.repos : k => v }
+}
+
+output "clone_urls" {
+  value = module.repos
 }
