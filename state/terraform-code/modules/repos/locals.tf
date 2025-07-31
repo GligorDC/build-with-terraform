@@ -6,7 +6,7 @@ locals {
       pages    = false,
     },
     frontend = {
-      lang     = "csharp",
+      lang     = "csharpppp",
       filename = "main.cs",
       pages    = false
     }
