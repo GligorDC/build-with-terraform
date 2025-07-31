@@ -12,7 +12,7 @@ module "repos" {
   env        = each.key
   #!!!!May be an issue;
   # repos      = jsondecode(file("repos.json"))
-  repos = locals.repos
+  repos = local.repos
 }
 
 module "deploy-key" {
@@ -24,11 +24,11 @@ module "deploy-key" {
   ]
 }
 
-module "info-page" {
-  source           = "../info-page"
-  repos            = { for k, v in module.repos["prod"].clone-urls : k => v }
-  run_provisioners = false
-}
+# module "info-page" {
+#   source           = "../info-page"
+#   repos            = { for k, v in module.repos["prod"].clone-urls : k => v }
+#   run_provisioners = false
+# }
 
 
 output "repos-information" {
