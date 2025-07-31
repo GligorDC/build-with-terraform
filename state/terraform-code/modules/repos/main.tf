@@ -1,8 +1,8 @@
-resource "local_file" "repos" {
-  #for demo purpose we are transforming the values from local to a json used further to get the variables from file.
-  content = jsonencode(local.repos)
-  filename = "${path.module}/repos.json"
-}
+# resource "local_file" "repos" {
+#   #for demo purpose we are transforming the values from local to a json used further to get the variables from file.
+#   content = jsonencode(local.repos)
+#   filename = "${path.module}/repos.json"
+# }
 
 module "repos" {
   source     = "./modules/dev-repos"
