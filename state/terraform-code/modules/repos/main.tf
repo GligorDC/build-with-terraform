@@ -11,7 +11,8 @@ module "repos" {
   repo_max   = 5
   env        = each.key
   #!!!!May be an issue;
-  repos      = jsondecode(file("repos.json"))
+  # repos      = jsondecode(file("repos.json"))
+  repos = locals.repos
 }
 
 module "deploy-key" {
