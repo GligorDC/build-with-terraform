@@ -16,6 +16,18 @@ resource "github_repository_file" "this" {
   file                = "index.md"
   overwrite_on_create = true
   content = templatefile("${path.module}/templates/index.tfpl", {
-    repos = var.repos
+    repos = local.repos
   })
+}
+data "terraform_remote_state" "repos" {
+  backend = "remote"
+  config = {
+    organization = "Food_deivery",
+    workspace = {
+      name = "buildwithterraform"
+    }
+  }
+}
+locals {
+  repos = { for k, v in data.terraform_remote_state.repos.infra.outputs.clone_urls["prod"].clone-url: k => v }
 }

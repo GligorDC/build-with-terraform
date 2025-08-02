@@ -3,7 +3,6 @@
 #   content = jsonencode(local.repos)
 #   filename = "${path.module}/repos.json"
 # }
-
 module "repos" {
   source     = "./modules/dev-repos"
   for_each   = var.environments
